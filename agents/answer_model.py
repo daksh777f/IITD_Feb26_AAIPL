@@ -41,10 +41,10 @@ class AAgent(object):
         )
         # LoRA adapter: load if available, otherwise use base model
         if _ADAPTER_DIR.exists():
-            print(f"🔗 Loading LoRA adapter from {_ADAPTER_DIR}")
+            print(f"Loading LoRA adapter from {_ADAPTER_DIR}")
             self.model = PeftModel.from_pretrained(base_model, str(_ADAPTER_DIR))
         else:
-            print(f"⚠️  No LoRA adapter at {_ADAPTER_DIR} — using base model")
+            print(f"WARNING: No LoRA adapter at {_ADAPTER_DIR} — using base model")
             self.model = base_model
 
     def generate_response(
